@@ -6,7 +6,7 @@ import { trpc } from "@/app/_trpc/client";
 import { serverClient } from "@/app/_trpc/server-client";
 
 export const TodoList = ({ initialTodos }: { initialTodos: Awaited<ReturnType<(typeof serverClient)["getTodos"]>> }) => {
-    const getTodos = trpc.getTodos.useQuery(undefined, { initialData: initialTodos });
+    const getTodos = trpc.getTodos.useQuery(undefined, { initialData: initialTodos, refetchOnMount: false, refetchOnReconnect: false });
     const addTodos = trpc.addTodo.useMutation({
         onSettled: () => {
             getTodos.refetch();

@@ -1,5 +1,5 @@
-import { TodoList } from "./_components/TodoList";
-import { serverClient } from "./_trpc/server-client";
+import { TodoList } from "@/app/_components/todo-list";
+import { serverClient } from "@/app/_trpc/server-client";
 
 export default async function Home() {
   const todos = await serverClient.getTodos();
