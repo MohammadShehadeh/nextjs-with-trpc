@@ -6,7 +6,6 @@ import React, { PropsWithChildren, useState } from 'react'
 import { trpc } from "./client";
 import { httpBatchLink } from "@trpc/react-query";
 
-
 const Provider = ({
     children
 }: PropsWithChildren) => {

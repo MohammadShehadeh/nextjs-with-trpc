@@ -3,7 +3,7 @@ import { drizzle } from "drizzle-orm/better-sqlite3";
 import { migrate } from "drizzle-orm/better-sqlite3/migrator";
 import Database from "better-sqlite3";
 
-import { publicProcedure, router } from "./trpc";
+import { publicProcedure, router, createCallerFactory } from "./trpc";
 
 import { todos } from "@/db/schema";
 import { eq } from "drizzle-orm";
@@ -36,4 +36,5 @@ export const appRouter = router({
     }),
 });
 
+export const createCaller = createCallerFactory(appRouter);
 export type AppRouter = typeof appRouter;
